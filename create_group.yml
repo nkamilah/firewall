@@ -1,0 +1,17 @@
+---
+- name: Add full control allow rights
+  hosts: all
+  tasks:
+    - name: Create a new group
+      win_group:
+        name: Remote Desktop Users
+        description: Deploy Group
+        state: present
+    - name: Ensure user bob is present
+      win_user:
+        name: bob
+        password: B0bP4ssw0rd
+        state: present
+        groups:
+          - Remote Desktop Users
+...
