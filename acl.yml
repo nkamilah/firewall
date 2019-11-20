@@ -14,6 +14,6 @@
     - name: Change owner of Path
       win_owner:
         path: C:\\Temp\\test.conf
-        user: apache
+        user: Users
         recurse: yes
 ...
