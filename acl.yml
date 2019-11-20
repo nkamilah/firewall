@@ -1,0 +1,19 @@
+---
+- name: Add full control allow rights
+  hosts: all
+  tasks:
+    - name: acl setting
+      win_acl:
+        path: C:\\Temp\\test.conf
+        user: Users
+        rights: FullControl
+        type: allow
+        state: present
+        inherit: ContainerInherit, ObjectInherit
+        propagation: 'None'
+    - name: Change owner of Path
+      win_owner:
+        path: C:\\Temp\\test.conf
+        user: apache
+        recurse: yes
+...
