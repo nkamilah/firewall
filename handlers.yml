@@ -3,19 +3,20 @@
   hosts: all
   force_handlers: true
   tasks:
-  - name: Install Dotnet4.6.1
-    win_chocolatey:
-      name: flashplayerppapi
-      state: present
-    notify:
-    - reboot server
-  - name: failing the tasks
-    debug:
-      msg: failing the task as testing requires
-    failed_when: true
+  - block:
+    - name: Install Dotnet4.6.1
+      win_chocolatey:
+        name: flashplayerpp
+        state: present
+    rescue:
+    - name: Install Dotnet4.6.1
+      win_chocolatey:
+        name: flashplayerppapi
+        state: present
+    always: 
+    - name: I will always run
+      debug:
+        msg: no one can stop me
   - name: this is another task
     debug: 
-      msg: final task
-  handlers:
-  - name: reboot server
-    win_reboot:
+      msg: Hello World
