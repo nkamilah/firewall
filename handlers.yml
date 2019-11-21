@@ -10,12 +10,12 @@
     - reboot server
   - name: failing the tasks
     debug:
-      msg: failing the task as Testing requires
+      msg: failing the task as testing requires
     failed_when: true
     ignore_errors: true
   - name: this is another task
     debug: 
-      final task
+      msg: final task
   handlers:
   - name: reboot server
     win_reboot:
