@@ -12,7 +12,7 @@
     - name: Install Dotnet4.6.1
       win_chocolatey:
         name: flashplayerppapi
-        state: present
+        state: absent
     always: 
     - name: I will always run
       debug:
