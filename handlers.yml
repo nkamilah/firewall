@@ -4,7 +4,7 @@
   tasks:
   - name: Install Dotnet4.6.1
     win_chocolatey:
-      name: vlc
+      name: winrar
       state: present
     notify:
     - reboot server
